@@ -35,7 +35,7 @@ Sử dụng các thư viện đã có và đánh giá các mô hình phân loạ
 
 | Model | Valuation | Spam_test | Ham_test|
 |-------|:---------:|:---------:|:-------:|
-|MultinomialNB - Count Vectorizer|95.0%|100.0%|25.71%|
+|MultinomialNB - Count Vectorizer|100.0%|100.0%|25.71%|
 |BernoulliNB - Count Vectorizer|95.0%|100.0%|91.43%|
 |LinearSVC - Count Vectorizer|85.0%|100.0%|91.43%|
 |MultinomialNB - word_tfidf|95.0%|100.0%|31.43%|

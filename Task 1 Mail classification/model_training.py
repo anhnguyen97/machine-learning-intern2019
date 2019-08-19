@@ -29,9 +29,11 @@ class Classifier(object):
         if os.path.exists(self.resultPath):
             with open(self.resultPath, "r") as f:
                 data = json.load(f)
-                if data['Accuracy'] < accuracy:
-                    with open(self.resultPath, "w") as f:
-                        f.write(json.dumps(data))
+            f.close()
+            if data['Accuracy'] < accuracy:
+                # print(self.model_name)
+                with open(self.resultPath, "w") as f:
+                    f.write(json.dumps(data))
 
         else:
             with open(self.resultPath, "w") as f:
@@ -72,19 +74,19 @@ if __name__ == '__main__':
     # traning model
     model = MultinomialNB()
     filePath = "./model/MultinomialNB-countVt.pkl"
-    resultPath = "./result/MultinomialNB-countVt.json"
+    resultPath = "./result/val-set/MultinomialNB-countVt.json"
     classifier = Classifier(model, 'Multinomial', filePath, resultPath)
     classifier.model_training(X_train, y_train)
 
     model = BernoulliNB()
     filePath = "./model/BernoulliNB-countVt.pkl"
-    resultPath = "./result/BernoulliNB-countVt.json"
+    resultPath = "./result/val-set/BernoulliNB-countVt.json"
     classifier = Classifier(model, 'BernoulliNB', filePath, resultPath)
     classifier.model_training(X_train, y_train)
 
     model = LinearSVC()
     filePath = "./model/LinearSVC-countVt.pkl"
-    resultPath = "./result/LinearSVC-countVt.json"
+    resultPath = "./result/val-set/LinearSVC-countVt.json"
     classifier = Classifier(model, 'LinearSVC', filePath, resultPath)
     classifier.model_training(X_train, y_train)
 
@@ -97,18 +99,18 @@ if __name__ == '__main__':
     # training model
     model = MultinomialNB()
     filePath = "./model/MultinomialNB-wordTfIdf.pkl"
-    resultPath = "./result/MultinomialNB-wordTfIdf.json"
+    resultPath = "./result/val-set/MultinomialNB-wordTfIdf.json"
     classifier = Classifier(model, 'MultinomialNB', filePath, resultPath)
     classifier.model_training(X_train, y_train)
 
     model = BernoulliNB()
     filePath = "./model/BernoulliNB-wordTfIdf.pkl"
-    resultPath = "./result/BernoulliNB-wordTfIdf.json"
+    resultPath = "./result/val-set/BernoulliNB-wordTfIdf.json"
     classifier = Classifier(model, 'BernoulliNB', filePath, resultPath)
     classifier.model_training(X_train, y_train)
 
     model = LinearSVC()
     filePath = "./model/LinearSVC-wordTfIdf.pkl"
-    resultPath = "./result/LinearSVC-wordTfIdf.json"
+    resultPath = "./result/val-set/LinearSVC-wordTfIdf.json"
     classifier = Classifier(model, 'LinearSVC', filePath, resultPath)
     classifier.model_training(X_train, y_train)
