@@ -6,7 +6,7 @@ from nlp import *
 
 
 class Test(object):
-    def __init__(self, modelPath, dataPath, vecPath):
+    def __init__(self, modelPath, dataPath, vectPath):
         self.modelPath = modelPath
         self.dataPath = dataPath
         self.vectPath = vectPath
@@ -19,6 +19,7 @@ class Test(object):
         data_loader = DataLoader(self.dataPath)
         content = data_loader.read_file()
         X_test, y_test = data_loader.get_data(content)
+        # print(X_test)
 
         # transform test data
         nlp = NLP()
@@ -27,7 +28,6 @@ class Test(object):
         feature_extraction = FeatureExtraction()
         transform = feature_extraction.load_vect(self.vectPath)
         X_test = transform.transform(X_test)
-
 
         # load model
         loaded_model = self.load_model()
@@ -38,8 +38,36 @@ class Test(object):
 
 
 if __name__ == '__main__':
-    dataPath = "./data/test/ham_test.txt"
+    dataPath = "./data/test/spam_test.txt"
+
+    print("Using count_vect: ")
     modelPath = "./model/BernoulliNB-countVt.pkl"
     vectPath = "./vect/count_vect.pkl"
+    test = Test(modelPath, dataPath, vectPath)
+    test.test()
+
+    modelPath = "./model/LinearSVC-countVt.pkl"
+    vectPath = "./vect/count_vect.pkl"
+    test = Test(modelPath, dataPath, vectPath)
+    test.test()
+
+    modelPath = "./model/MultinomialNB-countVt.pkl"
+    vectPath = "./vect/count_vect.pkl"
+    test = Test(modelPath, dataPath, vectPath)
+    test.test()
+
+    print("Using tfidf: ")
+    modelPath = "./model/BernoulliNB-wordTfIdf.pkl"
+    vectPath = "./vect/word_tfidf_vect.pkl"
+    test = Test(modelPath, dataPath, vectPath)
+    test.test()
+
+    modelPath = "./model/LinearSVC-wordTfIdf.pkl"
+    vectPath = "./vect/word_tfidf_vect.pkl"
+    test = Test(modelPath, dataPath, vectPath)
+    test.test()
+
+    modelPath = "./model/MultinomialNB-wordTfIdf.pkl"
+    vectPath = "./vect/word_tfidf_vect.pkl"
     test = Test(modelPath, dataPath, vectPath)
     test.test()

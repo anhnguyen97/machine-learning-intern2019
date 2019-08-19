@@ -1,6 +1,6 @@
 import gensim
 from DataLoader import *
-from pyvi import ViTokenizer
+from pyvi import ViTokenizer, ViUtils
 
 # Processing problem about text: remove stopword, tokenizer, remove special character
 class NLP(object):
@@ -22,6 +22,21 @@ class NLP(object):
     def remove_special_character(self):
         return gensim.utils.simple_preprocess(self.text)
 
+    def remove_accents(self):
+        word_list = self.text.split(" ")
+        list = []
+        # print(word_list)
+        for word in word_list:
+            if '_' in word:
+                sub_word = word.split('_')
+                set = []
+                for sub in sub_word:
+                    set.append(ViUtils.remove_accents(sub))
+                list.append(b'_'.join(set))
+            else :
+                list.append(ViUtils.remove_accents(word))
+        return b" ".join(list)
+
     def preprocessing(self, X_train):
         stop_words = self.stop_words
         preprocessed_x_train = []
@@ -38,7 +53,11 @@ class NLP(object):
             word_set = set(word for word in after_tokenize.split(" ") if word not in stop_words)
             after_remove_stop = " ".join(word_set)
 
-            preprocessed_x_train.append(after_remove_stop)
+            # remove accent
+            self.text = after_remove_stop
+            after_remove_accent = self.remove_accents()
+
+            preprocessed_x_train.append(after_remove_accent)
 
         return preprocessed_x_train
 
