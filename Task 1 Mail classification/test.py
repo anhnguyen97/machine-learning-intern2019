@@ -16,6 +16,9 @@ class Test(object):
     def load_model(self):
         return pickle.load(open(self.modelPath, "rb"))
 
+    def save_model(self, model, path):
+        pickle.dump(model, open(path, 'wb'))
+
     def test(self):
         # get test data
         data_loader = DataLoader(self.dataPath[0])
@@ -48,6 +51,7 @@ class Test(object):
             "result": result,
             "predict": predict,
             "X_test": X_test_init,
+            'model': loaded_model,
         }
 
         return result
@@ -102,6 +106,10 @@ if __name__ == '__main__':
     }
     with open("./result/best_model.json", "w") as f:
         f.write(json.dumps(data))
+
+    path = "./result/best_model.pkl"
+    test.save_model(best_model["model"], path)
+
 
     # save classification result:
     best_predict = (best_model["predict"])
