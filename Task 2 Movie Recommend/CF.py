@@ -74,7 +74,7 @@ class CF(object):
         # Step 3: find similarity btw the current user and others
         # who already rated i
         sim = self.S[u, users_rated_i]
-        # Step 4: find the k most similarity users
+        # Step 4: find the k most similarity users, get index of k most similarity users
         a = np.argsort(sim)[-self.k:]
         # and the corresponding similarity levels
         nearest_s = sim[a]
