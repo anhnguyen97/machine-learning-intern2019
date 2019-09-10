@@ -46,15 +46,15 @@
     
     + Training:
     
-    ![alt Training](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/Train.png)
+    ![alt text](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/Train.png "Training")
 
     + Predict:
     
-    ![alt Predict](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/Pred.png)
+    ![alt text](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/Pred.png "Pred")
     
     + Đánh giá:
     
-    ![alt Training](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/RMSE.png)
+    ![alt text](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/RMSE.png "RMSE")
     
 4. Tập dữ liệu sử dụng:
 
