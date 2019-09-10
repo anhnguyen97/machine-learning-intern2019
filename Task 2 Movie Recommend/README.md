@@ -1,4 +1,4 @@
-####Movie Recommend - Collaborative Filtering (CF)
+#### Movie Recommend - Collaborative Filtering (CF)
 
 ---
 
@@ -24,12 +24,12 @@
     Đặt mức độ gần giống nhau của 2 user ui và uj là sim(ui, uj).
     
     Để đo similarity giữa các user, cần xây dựng các ***feature vector*** cho các user. Áp dụng độ đo cosine để đo độ similarity giữa các vector đó.
-    #####Chuẩn hóa dữ liệu
+    ##### Chuẩn hóa dữ liệu
     Dữ liệu đầu vào là Utility Matrix, gồm các user và rating của user đối với các item(movie). Do số lượng các item rất lớn trong khi mỗi user chỉ rating 1 số lượng rất nhỏ các item nên vector đặc trưng cho mỗi user sẽ bao gồm rất nhiều các giá trị None, để có thể tính toán, cần chuẩn hóa đưa các giá trị này về giá trị số thực mà không ảnh hưởng đến độ giống nhau giữa các user.
     
     Đối với các movie mà user chưa rate, đặt rating bằng rating trung bình (mean_rate) của các item mà user đó đã rated. Sau đó, trừ các rating cho mean_rate, các rating > 0 thể hiện các item mà user đó quan tâm, yêu thích và ngược lại.
       
-    #####Cosine similarity
+    ##### Cosine similarity
     Áp dụng độ đo cosine để tính độ similarity giữa các user theo vector đã được chuẩn hóa.
     
     3.2. Gợi ý phim cho user
@@ -41,6 +41,20 @@
     3.3. Đánh giá:
     
     Sủ dụng RMSE (Root Mean Square Error) để đánh giá kết quả của hệ thống
+    
+    3.4. Sơ đồ 
+    
+    + Training:
+    
+    ![alt Training](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/Train.png)
+
+    + Predict:
+    
+    ![alt Predict](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/Pred.png)
+    
+    + Đánh giá:
+    
+    ![alt Training](https://github.com/anhnguyen97/machine-learning-intern2019/tree/master/Task%202%20Movie%20Recommend/image/RMSE.png)
     
 4. Tập dữ liệu sử dụng:
 
